@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Palette from builder.aws.com — see "color pallete.md" */
+@theme {
+  --color-bg: #080808;
+  --color-surface: #1a1a1a;
+  --color-line: #242424;
+  --color-subtle: #3b3b3b;
+  --color-disabled: #6b6b6b;
+  --color-muted: #909090;
+  --color-soft: #b7b7b7;
+  --color-secondary: #e1e1e1;
+  --color-heading: #f5f5f5;
+  --color-body: #f9f9f9;
+
+  --color-accent: #ca9aff;
+  --color-accent-vivid: #b052ff;
+  --color-accent-deep: #7300e5;
+  --color-accent-tint: #f5edff;
+
+  --color-teal: #00f5e4;
+  --color-purple: #d4a8ff;
+  --color-orange: #ff997a;
+  --color-indigo: #5c7fff;
+  --color-yellow: #ffd863;
+  --color-green: #8bf972;
+  --color-red: #ff3d3d;
+  --color-info: #76adff;
+  --color-aws: #ff9900;
+
+  --font-pixel: "Press Start 2P", ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-accent-deep);
+  color: var(--color-body);
+}
+
+/* Blinking block cursor */
+.cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1em;
+  margin-left: 0.15em;
+  vertical-align: -0.12em;
+  background: var(--color-accent);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+.pixel-in {
+  opacity: 0;
+  animation: pixel-in 1ms steps(1) forwards;
+}
+@keyframes pixel-in { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-in { opacity: 1; animation: none; }
+  html { scroll-behavior: auto; }
+  .cursor { animation: none; }
+}
