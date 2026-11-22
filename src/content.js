@@ -1,16 +1,12 @@
-// All club information lives here so it can be updated without touching layout code.
-//
-// Photos: drop an image into /public/team/ (e.g. /public/team/ruthwik.jpg) and set `photo: "/team/ruthwik.jpg"`.
-// Until a photo is set, an oval placeholder with the member's initials is shown.
-//
-// Links: leave a URL as "" until the official one is confirmed. Empty links render as clearly marked
-// "coming soon" placeholders instead of broken or invented URLs.
+// All club information lives here (copied from aws-sbg/app/content.ts).
+// Leave a link as "" until the official URL is confirmed; it renders as "coming soon".
 
 export const club = {
   name: "AWS Student Builder Group – BVRIT",
+  short: "AWS SBG BVRIT",
   tagline: "Learn. Build. Innovate.",
   about: [
-    "A student-driven technology community at BVRIT focused on cloud computing, AWS technologies, hands-on learning, open-source contributions and collaborative project building.",
+    "A student-driven tech-community at BVRIT focused on AWS technologies, and collaborative project building.",
     "We aim to create an environment where students can explore new technologies, develop practical skills, collaborate on real-world projects and grow as future technology professionals.",
   ],
 };
@@ -19,30 +15,28 @@ export const links = {
   joinForm: "", // Official recruitment Google Form URL
   instagram: "",
   linkedin: "",
-  github: "",
 };
 
-export type Person = { name: string; role: string; photo?: string };
-
-export const team: (Person & { featured?: boolean })[] = [
-  { name: "Ruthwik", role: "President", featured: true },
-  { name: "D.N.S. Pavan Kumar", role: "Technical Lead" },
-  { name: "Shyam", role: "Marketing & Social Media Lead" },
-  { name: "G. Rishikesh", role: "Logistics & Operations Lead" },
-  { name: "Pavani", role: "Creative Lead" },
-  { name: "Sanjana", role: "PR & Sponsorship Lead" },
+// Photos: put images in /public/team/ and set photo: "/team/name.jpg". LinkedIn: full profile URL.
+export const team = [
+  { name: "Ruthwik", role: "President", photo: "", linkedin: "" },
+  { name: "D.N.S. Pavan Kumar", role: "Technical Lead", photo: "", linkedin: "" },
+  { name: "Shyam", role: "Marketing & Social Media Lead", photo: "", linkedin: "" },
+  { name: "G. Rishikesh", role: "Logistics & Operations Lead", photo: "", linkedin: "" },
+  { name: "Pavani", role: "Creative Lead", photo: "", linkedin: "" },
+  { name: "Sanjana", role: "PR & Sponsorship Lead", photo: "", linkedin: "" },
 ];
 
-export const mentor: Person & { department: string; description: string } = {
+export const mentor = {
   name: "L. Pallavi Ma'am",
+  photo: "",
+  linkedin: "",
   role: "Associate Head of Department (Associate HOD)",
   department: "Computer Science Department, BVRIT",
   description: "Guiding our community towards technical growth, collaboration and meaningful learning experiences.",
 };
 
-export type ObjectiveIcon = "cloud" | "build" | "collab" | "career";
-
-export const objectives: { title: string; description: string; icon: ObjectiveIcon }[] = [
+export const objectives = [
   { title: "Cloud Learning", description: "Build practical knowledge of AWS and cloud computing.", icon: "cloud" },
   { title: "Hands-on Building", description: "Encourage students to work on real-world projects and technical challenges.", icon: "build" },
   { title: "Open Source & Collaboration", description: "Promote open-source contributions, teamwork and knowledge sharing.", icon: "collab" },
